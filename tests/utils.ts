@@ -1,4 +1,3 @@
-
 export interface Action {
   label: string;
   href: string;

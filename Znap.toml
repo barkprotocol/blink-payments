@@ -1,8 +1,26 @@
 identity = "~/.config/solana/id.json"
-rpc_url = "https://mainnet.helius-rpc.com/?api-key=22a5a327-77fd-4021-b6d3-2d1ccb26fb18"
+rpc_url = "https://mainnet.helius-rpc.com/?api-key=409916b5-96e5-4891-8aa5-747fcf8a35e5"
+
+[[collections]]
+name = "pay-with-bark-token"
+address = "127.0.0.1"
+port = 3000
+protocol = "http"
 
 [[collections]]
 name = "pay-with-send-token"
+address = "127.0.0.1"
+port = 3000
+protocol = "http"
+
+[[collections]]
+name = "pay-with-sol"
+address = "127.0.0.1"
+port = 3000
+protocol = "http"
+
+[[collections]]
+name = "pay-with-usdc"
 address = "127.0.0.1"
 port = 3000
 protocol = "http"

@@ -4,16 +4,18 @@ Welcome to **BARK - Blink Payments**! This project is a web application for hand
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Installation](#installation)
-- [Development](#development)
-- [Usage](#usage)
-- [API Routes](#api-routes)
-- [Components](#components)
-- [Utilities](#utilities)
-- [Scripts](#scripts)
-- [Contributing](#contributing)
-- [License](#license)
+- [BARK - Blink Payments](#bark---blink-payments)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Installation](#installation)
+  - [Development](#development)
+  - [Usage](#usage)
+    - [API Routes](#api-routes)
+    - [Components](#components)
+    - [Utilities](#utilities)
+  - [Scripts](#scripts)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## Introduction
 
