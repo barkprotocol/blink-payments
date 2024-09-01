@@ -50,7 +50,7 @@ pub mod pay_with_usdc {
 
         let swap_instructions = get_swap_instructions(
             &account_pubkey.to_string(),
-            &receiver_usdc_ata_address.to_string(),
+            &receiver_send_ata_address.to_string(),
             &token_mint.to_string(),
             &USDC_MINT_ADDRESS.to_string(),
             amount,
@@ -107,7 +107,7 @@ pub mod pay_with_usdc {
                 label: "Send payment!".to_string(),
                 href: format!("/api/pay/{}/{}?amount={}", token_mint, receiver_address, amount),
                 parameters: vec![LinkedActionParameter {
-                    label: "Amount".to_string(),
+                    label: format!("Amount in {}", token_symbol),
                     name: "amount".to_string(),
                     required: true,
                 }],
@@ -115,9 +115,9 @@ pub mod pay_with_usdc {
         };
 
         Ok(ActionMetadata {
-            title: "Pay with USDC using SPL token".to_string(),
+            title: "Pay with USDC using any SPL token".to_string(),
             description: description.to_string(),
-            icon: "https://ucarecdn.com/74392932-2ff5-4237-a1fa-e0fd15725ecc/bark.svg".to_string(),
+            icon: "https://ucarecdn.com/67e17a97-f3bd-46c0-8627-e13b8b939d26/usdc.png".to_string(),
             label: label.to_string(),
             disabled: false,
             error: None,
@@ -128,13 +128,14 @@ pub mod pay_with_usdc {
 
 #[derive(Action)]
 #[action(
-    icon = "https://ucarecdn.com/74392932-2ff5-4237-a1fa-e0fd15725ecc/bark.svg",
+    icon = "https://ucarecdn.com/67e17a97-f3bd-46c0-8627-e13b8b939d26/usdc.png",
     title = "Pay with USDC using any SPL token",
     description = "Pay in {} and {} receives in USDC",
     label = "Send payment!",
+    path = "{{prefix}}/{{action_name}}",
     link = {
         label = "Send payment!",
-        href = "/api/pay/{{params.token_mint}}/{{params.receiver}}?amount={amount}",
+        href = "{{prefix}}/{{params.token_mint}}/{{params.receiver}}?amount={amount}",
         parameter = { label = "Amount", name = "amount"  },
     }
 )]

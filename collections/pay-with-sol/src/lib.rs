@@ -41,7 +41,7 @@ pub mod pay_with_sol {
 
         let receiver_sol_ata_address = get_associated_token_address(&receiver_pubkey, &SOL_MINT_ADDRESS);
 
-        let create_sol_ata_instruction = create_associated_token_account_idempotent(
+        let create_send_ata_instruction = create_associated_token_account_idempotent(
             &account_pubkey,
             &receiver_pubkey,
             &SOL_MINT_ADDRESS,
@@ -50,7 +50,7 @@ pub mod pay_with_sol {
 
         let swap_instructions = get_swap_instructions(
             &account_pubkey.to_string(),
-            &receiver_sol_ata_address.to_string(),
+            &receiver_bark_ata_address.to_string(),
             &token_mint.to_string(),
             &SOL_MINT_ADDRESS.to_string(),
             amount,
@@ -107,7 +107,7 @@ pub mod pay_with_sol {
                 label: "Send payment!".to_string(),
                 href: format!("/api/pay/{}/{}?amount={}", token_mint, receiver_address, amount),
                 parameters: vec![LinkedActionParameter {
-                    label: "Amount".to_string(),
+                    label: format!("Amount in {}", token_symbol),
                     name: "amount".to_string(),
                     required: true,
                 }],
@@ -117,7 +117,7 @@ pub mod pay_with_sol {
         Ok(ActionMetadata {
             title: "Pay with SOL using any SPL token".to_string(),
             description: description.to_string(),
-            icon: "https://ucarecdn.com/74392932-2ff5-4237-a1fa-e0fd15725ecc/bark.svg".to_string(),
+            icon: "https://ucarecdn.com/8bcc4664-01b2-4a88-85bc-9ebce234f08b/sol.png".to_string(),
             label: label.to_string(),
             disabled: false,
             error: None,
@@ -128,13 +128,14 @@ pub mod pay_with_sol {
 
 #[derive(Action)]
 #[action(
-    icon = "https://ucarecdn.com/74392932-2ff5-4237-a1fa-e0fd15725ecc/bark.svg",
+    icon = "https://ucarecdn.com/8bcc4664-01b2-4a88-85bc-9ebce234f08b/sol.png",
     title = "Pay with SOL using any SPL token",
-    description = "Pay in {} and {} receives in SOL",
+    description = "Pay in {} and {} receives in BARK",
     label = "Send payment!",
+    path = "{{prefix}}/{{action_name}}",
     link = {
         label = "Send payment!",
-        href = "/api/pay/{{params.token_mint}}/{{params.receiver}}?amount={amount}",
+        href = "{{prefix}}/{{params.token_mint}}/{{params.receiver}}?amount={amount}",
         parameter = { label = "Amount", name = "amount"  },
     }
 )]

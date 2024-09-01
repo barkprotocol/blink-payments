@@ -1,25 +1,23 @@
 # BARK - Blink Payments
 
-Welcome to **BARK - Blink Payments**! This project is a web application for handling payments with BARK, SEND, SOL, USDC, and SPL tokens using Next.js. It includes functionalities for receiving and sending payments, as well as managing transaction interactions.
+BARK - Blink Payments facilitates payments and SPL token transfers on the Solana blockchain. This application showcases integration with SOL, USDC, and SPL tokens. It includes endpoints for sending and receiving payments, handling SPL token transactions, and ensuring efficient transaction management.
 
 ## Table of Contents
 
-- [BARK - Blink Payments](#bark---blink-payments)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [Installation](#installation)
-  - [Development](#development)
-  - [Usage](#usage)
-    - [API Routes](#api-routes)
-    - [Components](#components)
-    - [Utilities](#utilities)
-  - [Scripts](#scripts)
-  - [Contributing](#contributing)
-  - [License](#license)
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Development](#development)
+- [Usage](#usage)
+- [API Routes](#api-routes)
+- [Components](#components)
+- [Utilities](#utilities)
+- [Scripts](#scripts)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Introduction
 
-**BARK - Blink Payments** is designed to facilitate payments using various tokens on the Solana blockchain, including BARK, SEND, SOL, USDC, and SPL tokens. This project showcases how to integrate multiple token payments into a web application, with a focus on efficient transaction handling and user interactions.
+**BARK - Blink Payments** facilitates payments and token transfers on the Solana blockchain. This application showcases integration with SOL, USDC, and SPL tokens. It provides endpoints for sending and receiving payments, handling SPL token transactions, and ensuring efficient transaction management.
 
 ## Installation
 
@@ -63,13 +61,14 @@ This command will start the server on [http://localhost:3000](http://localhost:3
 
 ### API Routes
 
-The project includes API routes to handle payments:
+The project includes API routes for handling payments and token transfers:
 
-- **`/api/receive-payment`**: Endpoint to receive BARK tokens.
-- **`/api/send-token`**: Endpoint to send tokens.
-- **`/api/transfer`**: Endpoint to handle transfers of BARK, SOL, USDC, and other SPL tokens.
+- **`/api/receive-payment`**: Endpoint to receive payments, supports BARK, SEND, SOL, USDC, and SPL tokens.
+- **`/api/send-token`**: Endpoint to send tokens, supports BARK, SEND, SOL, USDC, and SPL tokens.
 
 You can test these endpoints using tools like Postman or directly through the provided web interface.
+
+## UI Interface
 
 ### Components
 
@@ -83,9 +82,25 @@ Components for the application are located in the `components/` directory:
 Utility functions are in the `utils/` directory:
 
 - **`utils/utils.ts`**: General utility functions, including URL and fetch handling.
-- **`utils/helpers.ts`**: Functions for specific tasks like interacting with the Solana blockchain.
+- **`utils/helpers.ts`**: Functions for specific tasks like interacting with the Solana blockchain and processing payments.
 
-## Scripts
+### Functions
+
+#### Payment Processing
+
+- **`processPayment(request: PaymentRequest): Promise<TransactionResponse>`**: Handles payments for SOL, USDC, and SPL tokens. The request should include:
+  - `connection`: Solana blockchain connection object.
+  - `payer`: PublicKey string of the payer.
+  - `amount`: Amount to transfer.
+  - `token`: Token type (SOL, USDC, or SPL token address).
+
+- **`processTokenTransfer(request: TokenTransferRequest): Promise<TransactionResponse>`**: Handles token transfers for SPL tokens. The request should include:
+  - `connection`: Solana blockchain connection object.
+  - `recipient`: PublicKey string of the recipient.
+  - `amount`: Amount to transfer.
+  - `token`: SPL token address.
+
+### Scripts
 
 Here are some common scripts you can use:
 
@@ -93,6 +108,8 @@ Here are some common scripts you can use:
 - `build` - Build the application for production.
 - `start` - Run the application in production mode.
 - `lint` - Lint the codebase.
+- `lint:fix` - Automatically fix linting issues.
+- `test` - Run the tests.
 
 For example, to build the application for production, use:
 

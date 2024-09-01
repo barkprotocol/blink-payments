@@ -41,7 +41,7 @@ pub mod pay_with_bark_token {
 
         let receiver_bark_ata_address = get_associated_token_address(&receiver_pubkey, &BARK_MINT_ADDRESS);
 
-        let create_bark_ata_instruction = create_associated_token_account_idempotent(
+        let create_send_ata_instruction = create_associated_token_account_idempotent(
             &account_pubkey,
             &receiver_pubkey,
             &BARK_MINT_ADDRESS,
@@ -107,7 +107,7 @@ pub mod pay_with_bark_token {
                 label: "Send payment!".to_string(),
                 href: format!("/api/pay/{}/{}?amount={}", token_mint, receiver_address, amount),
                 parameters: vec![LinkedActionParameter {
-                    label: "Amount".to_string(),
+                    label: format!("Amount in {}", token_symbol),
                     name: "amount".to_string(),
                     required: true,
                 }],
@@ -132,9 +132,10 @@ pub mod pay_with_bark_token {
     title = "Pay with BARK using any SPL token",
     description = "Pay in {} and {} receives in BARK",
     label = "Send payment!",
+    path = "{{prefix}}/{{action_name}}",
     link = {
         label = "Send payment!",
-        href = "/api/pay/{{params.token_mint}}/{{params.receiver}}?amount={amount}",
+        href = "{{prefix}}/{{params.token_mint}}/{{params.receiver}}?amount={amount}",
         parameter = { label = "Amount", name = "amount"  },
     }
 )]

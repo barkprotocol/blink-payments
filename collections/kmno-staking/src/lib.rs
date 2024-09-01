@@ -56,7 +56,7 @@ pub mod kmno_staking {
 #[action(
     icon = "https://raw.githubusercontent.com/leandrogavidia/files/main/kmno-staking.png",
     title = "Stake KMNO",
-    description = "Stake your KMNO to boost points, vote on proposals, and earn rewards in Kamino Finance",
+    description = "Stake your KMNO to boost points, vote on proposals, and earn rewards in KAMINO Finance",
     label = "Stake",
     link = {
         label = "Stake",
