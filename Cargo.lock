@@ -2411,9 +2411,9 @@ checksum = "c08d65885ee38876c4f86fa503fb49d7b507c2b62552df7c70b2fce627e06381"
 
 [[package]]
 name = "openssl"
-version = "0.10.66"
+version = "0.10.71"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9529f4786b70a3e8c61e11179af17ab6188ad8d0ded78c5529441ed39d4bd9c1"
+checksum = "5e14130c6a98cd258fdcb0fb6d744152343ff729cbfcb28c656a9d12b999fbcd"
 dependencies = [
  "bitflags 2.6.0",
  "cfg-if",
@@ -2443,9 +2443,9 @@ checksum = "ff011a302c396a5197692431fc1948019154afc178baf7d8e37367442a4601cf"
 
 [[package]]
 name = "openssl-sys"
-version = "0.9.103"
+version = "0.9.106"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7f9e8deee91df40a943c71b917e5874b951d32a802526c85721ce3b776c929d6"
+checksum = "8bb61ea9811cc39e3c2069f40b8b8e2e70d8569b361f879786cc7ed48b777cdd"
 dependencies = [
  "cc",
  "libc",
@@ -2489,7 +2489,55 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a"
 
 [[package]]
+name = "pay-with-bark-token"
+version = "0.1.0"
+dependencies = [
+ "axum",
+ "base64 0.22.1",
+ "reqwest 0.12.7",
+ "serde",
+ "serde_json",
+ "solana-client",
+ "solana-sdk",
+ "spl-associated-token-account 5.0.0",
+ "spl-token",
+ "znap",
+]
+
+[[package]]
 name = "pay-with-send-token"
+version = "0.1.0"
+dependencies = [
+ "axum",
+ "base64 0.22.1",
+ "reqwest 0.12.7",
+ "serde",
+ "serde_json",
+ "solana-client",
+ "solana-sdk",
+ "spl-associated-token-account 5.0.0",
+ "spl-token",
+ "znap",
+]
+
+[[package]]
+name = "pay-with-sol"
+version = "0.1.0"
+dependencies = [
+ "axum",
+ "base64 0.22.1",
+ "reqwest 0.12.7",
+ "serde",
+ "serde_json",
+ "solana-client",
+ "solana-sdk",
+ "spl-associated-token-account 5.0.0",
+ "spl-token",
+ "znap",
+]
+
+[[package]]
+name = "pay-with-usdc"
 version = "0.1.0"
 dependencies = [
  "axum",
